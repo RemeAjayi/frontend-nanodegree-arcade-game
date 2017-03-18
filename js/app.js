@@ -6,6 +6,11 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.loc = {
+        x: 0;,
+        y: 0;
+    }
+    this.speed = 3;
 };
 
 // Update the enemy's position, required method for game
@@ -14,6 +19,14 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+     setTimeout(function()
+        { 
+            this.loc += this.speed;
+         }, 
+        3000);// enemy moves 3px every 3 seconds
+
+     //if player loc = enemy loc
+     // call a reset fxn that sets player loc to original position
 };
 
 // Draw the enemy on the screen, required method for game
@@ -44,3 +57,6 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//insantiate enemies 
+var enemy-1 = Enemy();
